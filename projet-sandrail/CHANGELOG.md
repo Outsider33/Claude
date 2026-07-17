@@ -1,5 +1,13 @@
 # Journal des révisions
 
+## v0.2.1 — 17 juillet 2026
+
+Révision de mise en page uniquement, contenu inchangé : l'intérieur du document
+adopte l'identité de la couverture — bandeaux de section anthracite à numéro
+cuivre et motif triangulé, mini-motif signature en en-tête de page, pagination
+sur pavé anthracite à liseré cuivre. Seul le PDF de la dernière version est
+conservé dans l'arborescence (l'historique Git garde les précédentes).
+
 ## v0.2 — 17 juillet 2026
 
 Premier PDF de référence (18 pages).

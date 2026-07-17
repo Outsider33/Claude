@@ -1,7 +1,7 @@
 ---
 titre: ORGANIC EXO
 sous-titre: Sandrail électrique biplace haute performance
-version: v0.2
+version: v0.2.1
 date: 17 juillet 2026
 statut: Phase concept - architecture verrouillée, innovations en étude
 ---
@@ -330,6 +330,7 @@ Ce que je ne remplace pas : les essais physiques, le soudeur qualifié (la cage 
 | Version | Date | Contenu |
 | v0.1 | Itération 1 (chat, Claude desktop) | Diagnostic initial : structure, masses/traction, thermique, deux directions de style |
 | v0.2 | 17 juillet 2026 | Premier PDF de référence. Verrouillage « Organic Exo » ; synthèse autoportante de v0.1 ; 10 innovations transversales priorisées ; architecture AR 4 couches par paliers ; conformité FIA (amendement cellule acier CDS aux cotes art. 283, stratégie « FIA-ready ») ; rejet motivé des voies route (RTI, L7e-B2) ; étude énergie/moteurs complète et sélection EMRAX ; feuille de route P0-P4. Minci : la prose de l'itération 1 est remplacée par la synthèse du §2 |
+| v0.2.1 | 17 juillet 2026 | Révision de mise en page uniquement : l'intérieur adopte l'identité de la couverture (bandeaux de section anthracite/cuivre à motif triangulé, en-tête et pagination assortis). Contenu inchangé |
 
 # Références
 

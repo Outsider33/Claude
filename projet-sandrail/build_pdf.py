@@ -21,9 +21,9 @@ from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
-from reportlab.platypus import (BaseDocTemplate, Frame, HRFlowable, NextPageTemplate,
-                                PageBreak, PageTemplate, Paragraph, Spacer, Table,
-                                TableStyle)
+from reportlab.platypus import (BaseDocTemplate, Flowable, Frame, HRFlowable,
+                                NextPageTemplate, PageBreak, PageTemplate,
+                                Paragraph, Spacer, Table, TableStyle)
 from reportlab.platypus.tableofcontents import TableOfContents
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -199,19 +199,18 @@ def parse_story(lines, s):
             story.append(Paragraph(label, s["H2"]))
             i += 1
         elif strip.startswith("# "):
-            txt = strip[2:]
+            txt = sanitize(strip[2:])
             if not first_h1:
                 story.append(PageBreak())
             first_h1 = False
             if txt in UNNUMBERED_H1:
-                label = inline(txt)
+                num, toc = None, txt
             else:
                 n_h1 += 1
                 n_h2 = 0
-                label = '<font color="#B4682F">%d</font>&nbsp;&nbsp;%s' % (n_h1, inline(txt))
-            story.append(Paragraph(label, s["H1"]))
-            story.append(HRFlowable(width="100%", thickness=1.4, color=COPPER,
-                                    spaceBefore=1, spaceAfter=9))
+                num, toc = n_h1, "%d  %s" % (n_h1, txt)
+            story.append(SectionBanner(num, txt, toc))
+            story.append(Spacer(1, 7 * mm))
             i += 1
         elif strip.startswith("|"):
             rows = []
@@ -258,17 +257,118 @@ def parse_story(lines, s):
 
 
 # ------------------------------------------------------------------ gabarits
+def draw_spine(canvas, ox, oy, his, los, pairs, radius, width):
+    """Motif signature : épine dorsale triangulée à nœuds (repris de la couverture)."""
+    canvas.setLineWidth(width)
+
+    def pt(p):
+        return (ox + p[0] * mm, oy + p[1] * mm)
+
+    def seg(a, b):
+        (x1, y1), (x2, y2) = pt(a), pt(b)
+        canvas.line(x1, y1, x2, y2)
+
+    for a, b in zip(his, his[1:]):
+        seg(a, b)
+    for a, b in zip(los, los[1:]):
+        seg(a, b)
+    for hi, lo in pairs:
+        seg(his[hi], los[lo])
+    for p in his + los:
+        x, y = pt(p)
+        canvas.circle(x, y, radius, stroke=0, fill=1)
+
+
+class SectionBanner(Flowable):
+    """Bandeau de tête de section : anthracite, numéro cuivre, motif triangulé.
+
+    Porte l'identité de la couverture à l'intérieur du document. `toc_text`
+    à None = pas d'entrée au sommaire (cas du Sommaire lui-même).
+    """
+
+    HEIGHT = 24 * mm
+
+    def __init__(self, number, title, toc_text):
+        Flowable.__init__(self)
+        self.number, self.title, self.toc_text = number, title, toc_text
+        self.width, self.height = FRAME_W, self.HEIGHT
+
+    def wrap(self, aw, ah):
+        return self.width, self.height
+
+    def _fit_title(self, maxw):
+        for size in (16, 14.5, 13, 11.5):
+            words, lines, cur = self.title.split(), [], ""
+            ok = True
+            for w in words:
+                t = (cur + " " + w).strip()
+                if self.canv.stringWidth(t, "Helvetica-Bold", size) <= maxw or not cur:
+                    cur = t
+                else:
+                    lines.append(cur)
+                    cur = w
+            lines.append(cur)
+            for l in lines:
+                if self.canv.stringWidth(l, "Helvetica-Bold", size) > maxw:
+                    ok = False
+            if ok and len(lines) <= 2:
+                return lines, size
+        return lines[:2], 11.5
+
+    def draw(self):
+        c = self.canv
+        c.saveState()
+        c.setFillColor(CHARCOAL)
+        c.rect(0, 0, self.width, self.height, stroke=0, fill=1)
+        c.setFillColor(COPPER)
+        c.rect(0, 0, self.width, 1.1 * mm, stroke=0, fill=1)
+        # motif en fond de zone droite, estompé
+        c.setStrokeColor(COPPER)
+        c.setFillColor(COPPER)
+        try:
+            c.setStrokeAlpha(0.5)
+            c.setFillAlpha(0.5)
+        except AttributeError:
+            pass
+        his = [(0, 13), (12, 17.5), (25, 19.5), (39, 18.5), (51, 14)]
+        los = [(6, 6.5), (19, 8), (33, 8.5), (47, 6)]
+        pairs = [(0, 0), (1, 0), (1, 1), (2, 1), (2, 2), (3, 2), (3, 3), (4, 3)]
+        draw_spine(c, self.width - 58 * mm, 0, his, los, pairs, 1.1 * mm, 0.9)
+        try:
+            c.setStrokeAlpha(1)
+            c.setFillAlpha(1)
+        except AttributeError:
+            pass
+        x_title = 7 * mm
+        if self.number:
+            c.setFillColor(COPPER)
+            c.setFont("Helvetica-Bold", 30)
+            c.drawString(7 * mm, 6.8 * mm, str(self.number))
+            x_title = 20 * mm
+        lines, size = self._fit_title(self.width - x_title - 62 * mm)
+        c.setFillColor(colors.white)
+        c.setFont("Helvetica-Bold", size)
+        if len(lines) == 1:
+            c.drawString(x_title, (self.height - size) / 2.0 + 1.5, lines[0])
+        else:
+            c.drawString(x_title, self.height / 2.0 + 2.5, lines[0])
+            c.drawString(x_title, self.height / 2.0 - size - 0.5, lines[1])
+        c.restoreState()
+
+
 class ProjectDoc(BaseDocTemplate):
+    def _register(self, text, level):
+        key = hashlib.md5((text + str(self.page)).encode()).hexdigest()[:10]
+        self.canv.bookmarkPage(key)
+        self.canv.addOutlineEntry(text, key, level, level == 0)
+        self.notify("TOCEntry", (level, text, self.page))
+
     def afterFlowable(self, fl):
-        if isinstance(fl, Paragraph) and fl.style.name in ("H1", "H2"):
-            text = fl.getPlainText()
-            if text in ("Sommaire",):
-                return
-            level = 0 if fl.style.name == "H1" else 1
-            key = hashlib.md5((text + str(self.page)).encode()).hexdigest()[:10]
-            self.canv.bookmarkPage(key)
-            self.canv.addOutlineEntry(text, key, level, level == 0)
-            self.notify("TOCEntry", (level, text, self.page))
+        if isinstance(fl, SectionBanner):
+            if fl.toc_text:
+                self._register(fl.toc_text, 0)
+        elif isinstance(fl, Paragraph) and fl.style.name == "H2":
+            self._register(fl.getPlainText(), 1)
 
 
 def draw_cover(canvas, doc):
@@ -328,23 +428,41 @@ def draw_cover(canvas, doc):
 
 def draw_body(canvas, doc):
     canvas.saveState()
+    # en-tête : motif signature, titre courant, version, filet cuivre
     canvas.setStrokeColor(COPPER)
-    canvas.setLineWidth(0.8)
-    canvas.line(MARG_L, PAGE_H - 13 * mm, PAGE_W - MARG_R, PAGE_H - 13 * mm)
+    canvas.setFillColor(COPPER)
+    his = [(0, 0.3), (3.6, 1.8), (7.4, 2.5), (11, 1.6)]
+    los = [(1.8, -1.7), (5.5, -1.2), (9.2, -1.9)]
+    pairs = [(0, 0), (1, 0), (1, 1), (2, 1), (2, 2), (3, 2)]
+    draw_spine(canvas, MARG_L, PAGE_H - 10.6 * mm, his, los, pairs, 0.55 * mm, 0.7)
     canvas.setFillColor(GREY)
     canvas.setFont("Helvetica", 7.5)
-    canvas.drawString(MARG_L, PAGE_H - 11 * mm,
+    canvas.drawString(MARG_L + 16 * mm, PAGE_H - 11.4 * mm,
                       sanitize("%s — %s" % (doc.meta.get("titre", ""),
                                             doc.meta.get("sous-titre", ""))))
-    canvas.drawRightString(PAGE_W - MARG_R, PAGE_H - 11 * mm,
+    canvas.setFillColor(COPPER)
+    canvas.setFont("Helvetica-Bold", 7.5)
+    canvas.drawRightString(PAGE_W - MARG_R, PAGE_H - 11.4 * mm,
                            sanitize(doc.meta.get("version", "")))
-    canvas.setStrokeColor(SAND_LINE)
-    canvas.setLineWidth(0.6)
-    canvas.line(MARG_L, 12.5 * mm, PAGE_W - MARG_R, 12.5 * mm)
+    canvas.setStrokeColor(COPPER)
+    canvas.setLineWidth(0.8)
+    canvas.line(MARG_L, PAGE_H - 13.6 * mm, PAGE_W - MARG_R, PAGE_H - 13.6 * mm)
+    # pied : filet cuivre, mention, pavé anthracite de pagination
+    canvas.line(MARG_L, 13.2 * mm, PAGE_W - MARG_R, 13.2 * mm)
     canvas.setFillColor(GREY)
-    canvas.drawString(MARG_L, 8.5 * mm,
+    canvas.setFont("Helvetica", 7.5)
+    canvas.drawString(MARG_L, 8.8 * mm,
                       sanitize("Référentiel technique — %s" % doc.meta.get("date", "")))
-    canvas.drawRightString(PAGE_W - MARG_R, 8.5 * mm, "Page %d" % canvas.getPageNumber())
+    tab_w, tab_h = 13 * mm, 6.4 * mm
+    x = PAGE_W - MARG_R - tab_w
+    canvas.setFillColor(CHARCOAL)
+    canvas.rect(x, 6.2 * mm, tab_w, tab_h, stroke=0, fill=1)
+    canvas.setFillColor(COPPER)
+    canvas.rect(x, 6.2 * mm, 1.1 * mm, tab_h, stroke=0, fill=1)
+    canvas.setFillColor(colors.white)
+    canvas.setFont("Helvetica-Bold", 8)
+    canvas.drawCentredString(x + tab_w / 2 + 0.5 * mm, 8.4 * mm,
+                             "%d" % canvas.getPageNumber())
     canvas.restoreState()
 
 
@@ -374,9 +492,8 @@ def main():
     toc.dotsMinLevel = 0
 
     story = [NextPageTemplate("Body"), Spacer(1, 1), PageBreak(),
-             Paragraph("Sommaire", s["TocTitle"]),
-             HRFlowable(width="100%", thickness=1.4, color=COPPER,
-                        spaceBefore=1, spaceAfter=10),
+             SectionBanner(None, "Sommaire", None),
+             Spacer(1, 7 * mm),
              toc]
     story += parse_story(body_lines, s)
     doc.multiBuild(story)
