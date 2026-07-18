@@ -1,5 +1,18 @@
 # Journal des révisions
 
+## v0.3 — 17 juillet 2026
+
+Itération majeure sur retours propriétaire (21 pages).
+
+- **Budget 30 k EUR acté** → arbitrage chaîne de traction : scénario A (RDU Tesla Model 3 réemployé + pack DIY 21700, reco) vs B (twin EMRAX, upgrade sans re-châssis) ; budget ventilé honnête (35,3 k EUR → 3 leviers pour tenir 30 k).
+- **Pratique de nuit** : signature lumineuse (épine LED), interface mode nuit, avantage thermique nocturne.
+- **Interface** : 4 paliers validés (pacenotes, LED, HUD léger, haptique) + data station copilote amovible.
+- **FIA** : règle « conversion compétition < 1 journée », convertible < 6 mois.
+- Nouvelles études : trajectoires historiques & prospective, biomimétisme évalué (bestiaire noté), « un moteur ça s'améliore ? » (pédagogie), aimants (maglev rejeté, usages réels retenus).
+- **Logistique complète** : Pilat exclu (L.362-1 code env. — aucune dune naturelle FR praticable), sablières privées girondines pour le développement, expéditions Tunisie via Sousse (ferry Marseille–Tunis), Chine sans véhicule, permis B96/BE, remorque.
+- Outillage MCP recommandé : FreeCAD, Blender, KiCad.
+- Minci : détail des 10 innovations replié sur le trio actif (n° 2, 4, 8).
+
 ## v0.2.1 — 17 juillet 2026
 
 Révision de mise en page uniquement, contenu inchangé : l'intérieur du document

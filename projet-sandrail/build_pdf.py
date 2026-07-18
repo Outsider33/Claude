@@ -136,7 +136,19 @@ def col_widths(rows, ncols):
     lens = [max(len(r[c]) for r in rows) for c in range(ncols)]
     pts = [min(l, 55) * 4.9 + 16 for l in lens]
     scale = FRAME_W / float(sum(pts))
-    return [p * scale for p in pts]
+    w = [p * scale for p in pts]
+    # plancher : aucune colonne sous ~18 mm, sinon les mots se coupent lettre
+    # à lettre ; on reprend l'excédent sur les colonnes larges au prorata
+    minw = 52.0
+    if ncols > 1 and min(w) < minw:
+        w = [max(x, minw) for x in w]
+        excess = sum(w) - FRAME_W
+        wide = [i for i, x in enumerate(w) if x > minw]
+        wide_total = sum(w[i] - minw for i in wide)
+        if wide and wide_total > 0:
+            for i in wide:
+                w[i] -= excess * (w[i] - minw) / wide_total
+    return w
 
 
 def build_table(rows, s):
