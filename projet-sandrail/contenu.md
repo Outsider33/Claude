@@ -1,9 +1,9 @@
 ---
 titre: ORGANIC EXO
 sous-titre: Sandrail électrique biplace haute performance
-version: v0.4
+version: v0.5
 date: 17 juillet 2026
-statut: Traction verrouillée (twin EMRAX) - innovations closes - budget multi-année
+statut: UAE seul horizon extérieur - sous-jalons à rythme libre - guides MCP en annexes
 ---
 
 # Mode d'emploi du document
@@ -25,7 +25,7 @@ Chaque élément de décision porte un marqueur d'état :
 
 | Paramètre | Valeur | État |
 | Configuration | Sandrail biplace (le second siège : un ami à former, un jour), exosquelette apparent | [VERROUILLÉ] |
-| Budget | **Trajectoire multi-année ~75-85 k EUR** par jalons annuels, plafond de confort 100 k (§10) | [VERROUILLÉ] |
+| Budget | Trajectoire ~78-83 k EUR en **sous-jalons déclenchés par l'épargne** (rythme libre, §10), plafond 100 k | [VERROUILLÉ] |
 | Masse en ordre de marche (GVW) | 1 150 kg (à vide ~980 kg + 2 occupants) | [VERROUILLÉ] |
 | Usage | Terrain fermé, jour **et nuit** (balisage lumineux §9.5), plaisir d'abord | [VERROUILLÉ] |
 | Empattement / voies | 3 050 mm / ~1 950 mm | [VERROUILLÉ] |
@@ -43,19 +43,19 @@ Chaque élément de décision porte un marqueur d'état :
 | Compétition | Hors championnat ; convertible **< 12 mois** vers un engagement sérieux ; conversion jour J < 1 journée | [VERROUILLÉ] |
 | Innovations | **Liste close** (§4.4) : rien n'entre sans gain mesurable (vitesse, autonomie, sécurité) | [VERROUILLÉ] |
 | Lieu de développement | Sablière privée Gironde + **stockage sur site** (pas de véhicule tracteur : §9.4) | [EN ÉTUDE - contacts §9.2] |
-| Expéditions | Maroc (événements encadrés) puis UAE (conteneur, hiver) ; Tunisie en option prudente | [EN ÉTUDE] |
+| Expéditions | **UAE uniquement** (conteneur, CPD, hiver) ; Maghreb rejeté ; piste « Gobi » = construction locale, étude lointaine (§9.3) | [VERROUILLÉ] |
+| Permis | **B d'abord** (délai critique, à lancer maintenant) puis B96 (7 h) — sous-jalon S0 (§9.4) | [VERROUILLÉ] |
 | Infrastructure numérique | Serveur Vultr (Corée) = camp de base télémétrie/meshes/CI (§11.4) | [VERROUILLÉ] |
 
 ## Décisions actées cette itération (retours propriétaire)
 
-1. **Budget élargi** : 30 k n'était pas un plafond mais un plancher de confort — trajectoire multi-année actée (jalons annuels, §10), plafond ~100 k. Chaque jalon produit un véhicule qui roule.
-2. **Moteur : « ce qui se fait de mieux »** -> twin EMRAX re-verrouillé pour le final ; la mule roule avec le **premier** des deux EMRAX (rien n'est acheté pour être jeté — le RDU Tesla sort du projet, §7.2). Offre chinoise analysée honnêtement au §7.4 : la famille en Chine sert le sourcing composants, pas le moteur.
-3. **Nuit « Forza Horizon »** : balisage lumineux du parcours validé et étudié (§9.5) — piquets LED posés sur la ligne calculée par RTK : la trajectoire devient physique dans la nuit.
-4. **Musique** : enceinte dockable plug-and-play validée (§5.4), priorité pacenotes garantie.
-5. **Convertibilité 12 mois** (au lieu de 6) : plus de liberté de modification du modèle personnel ; conversion jour J < 1 journée inchangée ; le dossier permanent est requalifié : ce n'est pas de la paperasse FIA, c'est **l'assurance-vie du pilote** (§6.6 répond aussi à « le FIA-ready pénalise-t-il la performance ? » — réponse : ~15 kg, et il en rend plus qu'il ne prend).
-6. **Innovations : liste close** après trois derniers ajouts tangibles (pression pneus, VCU de secours, commandes volant — §4.4). Biomimétisme : la nature a rendu son verdict (§8.3). Le monstre reste épuré.
-7. **Logistique sans véhicule tracteur** (pas de PTAC disponible) : stockage sur site sablière + location/transporteur ponctuels (§9.4) ; liste d'exploitants girondins réels au §9.2 ; réserves douanières tunisiennes actées -> re-priorisation des expéditions (§9.3).
-8. **Serveur Corée** : adopté comme infrastructure projet (§11.4).
+1. **Expéditions tranchées** : non à la Chine (import véhicule) et **non au Maghreb** (Maroc, Tunisie et assimilés) — **full UAE en conteneur**, « le plus élégant et le moins risqué » (§9.3). L'idée du propriétaire pour la Chine est retournée dans le bon sens : ne pas amener le buggy, mais **en construire un sur place** un jour — la piste « Gobi » (beau-oncle à la sécurité d'un centre de loisirs du désert) est consignée comme étude lointaine.
+2. **Sous-jalons ralentis** : 37 k sur un an était trop gros — le budget passe en **sous-jalons S0-S9 déclenchés par l'épargne**, sans calendrier imposé (§10). Chaque sous-jalon est utile seul et n'engage pas le suivant.
+3. **Permis** : le propriétaire n'a pas encore le permis B — parcours acté : **B immédiatement** (délai critique du projet), puis B96 (§9.4).
+4. **Sablière** : démarche confirmée — la **lettre type est prête en Annexe B**, envoi sur feu vert après personnalisation.
+5. **MCP** : guide d'intégration pas à pas demandé et livré en **Annexe A** (FreeCAD MCP, Blender MCP ; note Docker — utile pour le serveur de Corée et WebODM, pas nécessaire pour les MCP eux-mêmes).
+
+Acquis v0.4 maintenus sans changement : twin EMRAX (mule mono-EMRAX), pack P45B en tranches, balisage nuit, dock enceinte, convertibilité 12 mois, innovations et biomimétisme clos, réponse « FIA-ready = ~15 kg, non-pénalité nette » (§6.6).
 
 # Synthèse de l'architecture (acquis des itérations 1-2)
 
@@ -303,22 +303,20 @@ Le bassin sableux girondin (axe Cestas - Saint-Jean-d'Illac - Marcheprime - Mios
 
 Méthode en trois canaux, en parallèle : (1) contact direct des deux locaux (Illac, Fabre) ; (2) **UNICEM Nouvelle-Aquitaine** (fédération des carrières : un seul mail touche tous les adhérents — demander « site en fin d'exploitation ouvert à une convention d'usage sportif électrique ») ; (3) registre des carrières actives de la **DREAL Nouvelle-Aquitaine** (données publiques) pour les sites en fin d'autorisation — souvent les plus ouverts. Arguments clés : véhicule **électrique silencieux** (zéro plainte voisinage — l'argument décisif vs moto-cross), zéro hydrocarbure, RC circuit, créneaux hors exploitation, indemnité + **location d'un emplacement conteneur** (revenu récurrent pour eux, solution transport pour nous). Lettre type : fournie à la prochaine itération. [Action : propriétaire valide le lancement des contacts]
 
-## Expéditions : re-priorisation après réserves Tunisie [EN ÉTUDE - mis à jour]
+## Expéditions : UAE, seul horizon extérieur [VERROUILLÉ - tranché]
 
-Les réserves du propriétaire sur l'administration tunisienne sont actées et fondées s'agissant d'un véhicule prototype non immatriculé, atypique en douane. Re-priorisation :
+Décision propriétaire : **non à la Chine (import) et non au Maghreb** (Maroc, Tunisie et le reste du Sahara nord-africain) — réserves administratives assumées. Par honnêteté de dossier, la seule formule qui lèverait mécaniquement la réserve Maghreb est consignée pour mémoire : un événement « clé en main » où l'organisateur transporte et dédouane lui-même **tout le parc** depuis la France (le participant ne touche jamais la douane) — si une telle offre carrée existe un jour au départ de Bordeaux, elle pourra être re-présentée ; d'ici là, **[REJETÉ]**, on n'en parle plus.
 
-| Rang | Destination | Pourquoi | Modalités clés |
-| 1 | **Maroc — événements encadrés** (Merzouga) | L'organisateur gère l'admission temporaire du parc : le risque douanier individuel disparaît ; infrastructure raid rodée depuis 40 ans | Route via Algésiras (~2 j) en location/transporteur ; calendrier des raids amateurs oct-avril |
-| 2 | **UAE — conteneur** (Liwa, Sweihan, zones désert libres) | LA culture dune mondiale ; **admission temporaire officielle 6 mois** (carnet CPD/ATA, procédure carrée, zéro bakchich) ; hiver 20-28 °C idéal ; communauté sandrail énorme ; pas de permis requis en zone désert | Conteneur 20' Bordeaux -> Jebel Ali ~2-3 k EUR AR ; jalon 3, véhicule mûr |
-| 3 | **Tunisie via Sousse** | L'atout famille demeure (base arrière, stockage, langue) | Conditions strictes : transitaire agréé + carnet CPD ou événement organisé (type Fenix Rally) qui prend le parc en charge — **jamais** en importation individuelle improvisée |
-| — | Chine (Kumtag) | Import véhicule quasi impossible | Voyage famille + location SSV sur place, sans le véhicule [VERROUILLÉ] |
+- **UAE — la destination extérieure unique [VERROUILLÉ]** : conteneur 20' Bordeaux -> Jebel Ali (~2-3 k EUR AR), **admission temporaire officielle 6 mois** (carnet CPD/ATA, procédure écrite, zéro arbitraire), hiver 20-28 °C idéal pour le chiller, zones désert libres (Liwa, Sweihan), la plus grande communauté sandrail du monde, pas de permis requis en zone désert. « Le plus élégant et le moins risqué » — exactement. Programmé au sous-jalon S9 (§10), véhicule mûr.
+- **La piste « Gobi » [EN ÉTUDE - horizon lointain]** : l'inversion du propriétaire est la bonne — ne pas amener le buggy en Chine, **en construire un sur place**. Atouts réels : le beau-oncle dirige la sécurité d'un centre de loisirs du désert de Gobi (terrain privé + autorité locale = l'équivalent chinois de notre sablière, avec l'autorisation au bon niveau), la famille sur place, et le sourcing chinois devient optimal puisqu'il n'y a plus d'export — moteur chinois enfin pertinent (achat local), cellules CATL/EVE locales, soudure locale. Lucidité : c'est un **second projet à part entière** (plans adaptés à l'offre locale, soudeur qualifié à trouver sur place, règles du centre à cadrer), pas une copie triviale. Il ne s'étudiera sérieusement qu'une fois le véhicule français mûr — et ce référentiel (plans, firmware, leçons de sablière) en sera le point de départ tout trouvé. Rien n'est budgété à ce stade.
 
 ## Transport sans véhicule tracteur [nouveau - remplace le plan remorque]
 
 Pas de PTAC disponible -> on inverse le problème : **le véhicule ne rentre pas à Bordeaux, il vit sur son terrain.**
 
 - **Stockage sur site sablière** : conteneur maritime 20' aménagé (occasion posée ~2 500-3 000 EUR, ou location intégrée à la convention) — atelier sec, recharge 32 A, antivol sérieux (le site est clôturé et gardienné, c'est le métier d'une carrière). Zéro remorquage au quotidien : on vient en voiture, on roule, on branche, on repart.
-- **Transports ponctuels** (événement, expédition) : location utilitaire + porte-engin à la journée (~200-300 EUR/we, permis B96 selon l'ensemble loué — formation 7 h sans examen, à faire une fois), ou **transporteur plateau** porte-à-porte (~2-3 EUR/km, sans permis ni stress).
+- **Permis [VERROUILLÉ - sous-jalon S0]** : pas encore de permis B — parcours acté : **permis B d'abord** (~1 500 EUR, 3-6 mois de délai réel : c'est le chemin critique du projet, à lancer tout de suite), puis **B96** (formation 7 h, ~250 EUR, sans examen). Bonne nouvelle en attendant : conduire le buggy sur terrain privé fermé n'exige **aucun permis** — le pilotage commence avant le papier rose (seule l'assurance RC circuit peut poser une condition : à vérifier au devis, beaucoup de contrats loisir n'en exigent pas).
+- **Transports ponctuels** (événement, expédition) : d'ici l'obtention des permis, **transporteur plateau** porte-à-porte (~2-3 EUR/km, sans permis ni stress) ; ensuite, location utilitaire + porte-engin à la journée (~200-300 EUR/we).
 - **Achat d'un tracteur + remorque : [REJETÉ] à ce stade** — ~20 k EUR immobilisés pour quelques trajets/an ; la location et le transporteur font mieux. Ré-évaluable si la cadence d'événements explose.
 
 ## La nuit « Forza Horizon » : balisage lumineux du parcours [VERROUILLÉ - nouveau]
@@ -332,38 +330,46 @@ L'idée du propriétaire est excellente et techniquement mûre — et elle boucl
 - Budget : ~1 800 EUR (piquets) + ~600 EUR (spots) + ~200 EUR (contrôle) — jalon 2. Pose/dépose : ~45 min à deux pour 2 km de parcours, les positions RTK étant pré-calculées.
 - Bonus sablière : un parcours balisé au cordeau, silencieux et spectaculaire de nuit, est aussi le meilleur argument de démonstration auprès de l'exploitant et des assureurs — c'est tout sauf du hors-piste sauvage.
 
-# Budget : trajectoire multi-année
+# Budget : sous-jalons à rythme libre
 
-Enveloppe re-cadrée par le propriétaire : ~30 k n'était qu'un ordre de grandeur, le projet est multi-année au fil des apports — plafond de confort ~100 k. Trajectoire construite en **jalons annuels dont chacun produit un véhicule qui roule** :
+Retour propriétaire : 37 k en un an, c'est trop gros aujourd'hui — on ralentit. Le principe change : **plus de jalons annuels — des sous-jalons déclenchés quand l'épargne y est.** Chacun est utile seul, se stocke sans se dégrader, et n'engage pas le suivant. L'ordre est technique (on ne soude pas après avoir posé la batterie) ; le rythme est le vôtre.
 
-| Jalon | Contenu | Coût | Cumul |
-| **J1 (an 1) — « la mule qui rugit déjà »** | Bancs trio (n° 2/4/8) ; cellule FIA + exosquelette + quille ; **1er EMRAX 268 + onduleur** ; tranche pack 15,5 kWh P45B ; roulant complet (bypass, direction, freins, paddles) ; HT + thermique ; VCU + télémétrie + RTK ; sécurité (sièges, harnais, extincteur) ; éclairage véhicule ; conteneur sablière | ~37 k | 37 k |
-| **J2 (an 2) — « le monstre complet »** | **2e EMRAX + onduleur** (twin + vectorisation) ; tranches pack -> 43,5 kWh ; interface paliers C/D (HUD, haptique) + data station ; **balisage nuit** + dock enceinte ; drone + pipeline mesh complet ; gestion de pression embarquée ; premier événement Maroc encadré | ~26 k | 63 k |
-| **J3 (an 3) — « l'expédition et l'orfèvrerie »** | Conteneur UAE (aller-retour saison) ; exosquelette titane torché + nœuds métal imprimés ; peinture IR caisson ; VCU limp-home ; marge/imprévus | ~15-20 k | ~78-83 k |
+| Sous-jalon | Contenu | Coût | Cumul |
+| **S0 — Fondations** | Permis B (~1,5 k) + B96 (~250) ; bancs trio n° 2/4/8 (~1,2 k) ; CAO/FEA (moi, gratuit) ; démarches sablière (Annexe B) | ~3 k | 3 k |
+| **S1 — Colonne** | Cellule FIA + exosquelette + quille (tubes, soudure qualifiée, visserie) | ~6,5 k | 9,5 k |
+| **S2 — Jambes** | Bras + 4 bypass + direction + freins + moyeux + paddles/skis | ~8 k | 17,5 k |
+| **S3 — Cœur** | 1er EMRAX 268 LC + onduleur SiC + réducteur | ~10 k | 27,5 k |
+| **S4 — Sang** | Tranche pack 15,5 kWh + HT + thermique (cellules achetées en dernier : le lithium ne doit pas dormir en carton) | ~8 k | 35,5 k |
+| **S5 — Nerfs** | VCU + télémétrie + RTK ; sièges/harnais/extincteur ; éclairage. **La mule roule.** | ~4 k | 39,5 k |
+| S6 — Twin | 2e EMRAX + onduleur (vectorisation vraie) | ~10 k | 49,5 k |
+| S7 — Souffle | Tranches pack -> 43,5 kWh | ~10 k | 59,5 k |
+| S8 — Sens | Interface C/D + data station ; balisage nuit ; enceinte ; drone ; gestion de pression | ~5 k | 64,5 k |
+| S9 — Horizon | Conteneur + saison UAE ; titane torché + nœuds métal ; VCU secours ; marge | ~14-18 k | ~78-83 k |
 
-Trois garde-fous : chaque jalon est **utilisable et arrêtable proprement** (pas d'engagement en cascade) ; les prix seront re-confirmés au devis à chaque jalon (ce tableau pilote, il ne promet pas) ; l'économie sourcing Chine (~-2,5 à -4 k, §7.4) et d'éventuelles recettes (prestation de scan drone pour carrières, contenu du build) viennent en déduction, jamais en pari.
+Garde-fous : prix re-confirmés au devis **à l'ouverture** de chaque sous-jalon (ce tableau pilote, il ne promet pas) ; économie sourcing Chine (-2,5 à -4 k, §7.4) et recettes éventuelles en déduction, jamais en pari ; cellules batterie toujours en dernier dans leur sous-jalon (fraîcheur). Ordre de grandeur du rythme : ~500 EUR/mois d'épargne met la mule (S5) à ~6 ans, ~1 000 EUR/mois à ~3 ans — **c'est l'épargne qui décide, pas le calendrier**. Et S0 s'ouvre à ~3 k : le projet démarre concrètement dès que le permis est lancé.
 
 # Feuille de route, décisions, outillage
 
 ## Phases
 
 | Phase | Contenu | Sortie |
-| P0 — Numérique (en cours) | Modèle dynamique 2-DOF sable, CAO cage paramétrique (FreeCAD MCP), FEA quille | Géométrie figée |
-| P1 — Bancs + terrain | Trio n° 2/4/8 ; contacts sablières (3 canaux §9.2) ; B96 | Données réelles + convention site |
-| P2 — Mule J1 | Châssis complet, mono-EMRAX, tranche 1, TC v1 | Véhicule roulant an 1 |
-| P3 — Twin J2 | 2e moteur, pack complet, interface C/D, balisage nuit | Monstre complet an 2 |
-| P4 — Expéditions J3 | Maroc encadré puis UAE conteneur ; titane + nœuds métal | Programme complet |
+| P0 — Numérique (en cours, gratuit) | Modèle dynamique 2-DOF sable, CAO cage paramétrique (FreeCAD MCP), FEA quille | Géométrie figée |
+| P1 — S0 | **Permis B** (chemin critique) puis B96 ; bancs trio n° 2/4/8 ; lettre sablière (Annexe B) via les 3 canaux §9.2 | Données réelles + convention site + mobilité |
+| P2 — S1 à S5 | Châssis complet, mono-EMRAX, tranche pack 1, TC v1 — au rythme de l'épargne | **La mule roule** |
+| P3 — S6 à S8 | 2e moteur (twin), pack complet, interface C/D, balisage nuit, drone | Le monstre complet |
+| P4 — S9 | Saison UAE en conteneur ; titane + nœuds métal ; VCU secours | Programme complet |
 
 ## Décisions attendues [A DÉCIDER]
 
-1. **Lancement des contacts sablières** (lettre type + les 3 canaux du §9.2) : feu vert ?
-2. **Rythme des jalons** : 1 an chacun (défaut) ou accéléré/ralenti selon apports ?
-3. **B96** : planifier la formation 7 h (utile dès les locations J1) ?
-4. **Prochaine itération technique proposée** : modèle dynamique 2-DOF + CAO paramétrique de la cage (via FreeCAD MCP si connecté d'ici là) — valider ou réorienter.
+1. **Ordre des sous-jalons S0-S9 validé tel quel ?** (le découpage est technique, mais l'ordre S2/S3 peut s'inverser si une opportunité d'occasion se présente sur les bypass ou le moteur).
+2. **Permis B : inscription lancée ce mois-ci ?** C'est le chemin critique — tout le reste peut attendre, pas ça.
+3. **Lettre sablière (Annexe B)** : relire, personnaliser les champs [entre crochets], me dire « envoie » — je préparerai alors la liste de diffusion finale (2 locaux + UNICEM).
+4. **MCP** : dérouler l'Annexe A (FreeCAD puis Blender) et me dire quand c'est en place — la CAO de la cage basculera alors en modélisation pilotée en direct.
+5. **Prochaine itération technique** : modèle dynamique 2-DOF + CAO paramétrique de la cage — valider ou réorienter.
 
 ## Outillage MCP recommandé
 
-1. **FreeCAD MCP** (`neka-nat/freecad-mcp`) — priorité : je modélise cage, quille et bras en paramétrique. 2. **Blender MCP** — rendus Organic Exo, études de la signature lumineuse et du balisage nocturne. 3. **KiCad MCP** (P2) — schémas électriques. Déjà en place : GitHub, PDF, recherche web. Pas-à-pas d'installation fourni à la demande.
+1. **FreeCAD MCP** (`neka-nat/freecad-mcp`) — priorité : je modélise cage, quille et bras en paramétrique. 2. **Blender MCP** — rendus Organic Exo, études de la signature lumineuse et du balisage nocturne. 3. **KiCad MCP** (sous-jalon S5) — schémas électriques. Déjà en place : GitHub, PDF, recherche web. **Le guide d'installation pas à pas est en Annexe A** (demande propriétaire — avec la réponse à « j'ai Docker » : inutile pour les MCP, précieux pour le serveur de Corée et WebODM).
 
 ## Infrastructure numérique : le serveur de Corée [VERROUILLÉ - nouveau]
 
@@ -375,6 +381,64 @@ Le serveur Vultr existant (Séoul, usage VPN) devient le **camp de base numériq
 - **WebODM CPU** en dépannage (sans GPU : lent mais fonctionne pour les petits meshes ; le laptop terrain reste l'outil principal).
 - La latence Séoul-France (~280 ms) est sans importance : **rien de temps réel ne passe par le cloud** — tout le vital est embarqué. Le VPN existant sécurise l'ensemble. Bonus : sauvegarde hors-site de ce référentiel.
 
+# Annexe A — Intégrer les MCP pas à pas
+
+> **Important** : un serveur MCP tourne sur **votre** machine — celle où FreeCAD/Blender et Claude Desktop (ou Claude Code en terminal) sont installés. Les sessions Claude web/distantes ne voient pas votre localhost : une fois l'installation faite, ouvrez une session **Claude Desktop** ou un terminal `claude` local, et je piloterai la CAO en direct. Ce dépôt Git reste le pont entre les deux mondes (je pousse les scripts, vous les voyez en local, et inversement).
+
+## A.1 — Prérequis (10 minutes)
+
+1. **Python 3.10+** : python.org (sous Windows, cocher « Add Python to PATH » à l'installation).
+2. **uv** (lanceur d'outils Python) : dans un terminal, `pip install uv` — vérifier avec `uvx --version`.
+3. **Claude Desktop** à jour (claude.ai/download), et/ou **Claude Code** en terminal : `npm install -g @anthropic-ai/claude-code`.
+4. **Docker** : pas nécessaire ici — ces MCP tournent en local via `uvx`, sur un socket localhost, rien n'est exposé au réseau. Votre Docker servira au §A.4.
+
+## A.2 — FreeCAD MCP (la priorité : la cage se dessinera là)
+
+1. Installer **FreeCAD 1.0+** : freecad.org.
+2. Installer l'addon serveur : sur github.com/neka-nat/freecad-mcp, bouton Code > Download ZIP ; dézipper ; copier le dossier `addon/FreeCADMCP` dans le répertoire des modules FreeCAD — Windows : `%APPDATA%\FreeCAD\Mod\` ; macOS : `~/Library/Application Support/FreeCAD/Mod/` ; Linux : `~/.local/share/FreeCAD/Mod/`. Redémarrer FreeCAD.
+3. Dans FreeCAD : menu déroulant des ateliers (en haut) -> choisir **« MCP Addon »** -> cliquer **« Start RPC Server »**. Le serveur écoute en local (port 9875). A refaire à chaque lancement de FreeCAD (avant d'ouvrir la conversation).
+4. Côté **Claude Desktop** : éditer le fichier de configuration — Windows : `%APPDATA%\Claude\claude_desktop_config.json` ; macOS : `~/Library/Application Support/Claude/claude_desktop_config.json` — et y mettre : `{"mcpServers": {"freecad": {"command": "uvx", "args": ["freecad-mcp"]}}}` (si le fichier contient déjà des serveurs, ajouter seulement l'entrée `"freecad"` dans le bloc `mcpServers` existant). Redémarrer Claude Desktop : l'icône des outils doit lister « freecad ».
+5. Côté **Claude Code** (terminal local) : une seule commande — `claude mcp add freecad -- uvx freecad-mcp`.
+6. **Test** : demander « Ouvre un document FreeCAD et crée un tube de 50 mm de diamètre, paroi 2 mm, longueur 1 m ». Si le tube apparaît : gagné. Astuce sessions longues : l'option `only_text_feedback` du serveur coupe les captures d'écran et économise beaucoup de contexte.
+
+## A.3 — Blender MCP (design, rendus, signature lumineuse)
+
+1. Installer **Blender 3.0+** : blender.org.
+2. Sur github.com/ahujasid/blender-mcp, télécharger le fichier `addon.py`. Dans Blender : Edit > Preferences > Add-ons > Install... > sélectionner `addon.py` > cocher **« Interface: Blender MCP »**.
+3. Dans la vue 3D, ouvrir le panneau latéral (touche **N**) -> onglet **BlenderMCP** -> **Connect to Claude**.
+4. Configuration client : même logique qu'en A.2.4 — entrée `"blender": {"command": "uvx", "args": ["blender-mcp"]}` dans Claude Desktop, ou `claude mcp add blender -- uvx blender-mcp` en Claude Code.
+5. **Test** : « Crée une scène : tube d'acier incurvé, matériau cuivre brossé, éclairage nocturne ». Premier vrai chantier proposé : l'épine dorsale LED vue de nuit.
+
+## A.4 — Où votre Docker sert vraiment
+
+- **Serveur de Corée (§11.4)** : la pile télémétrie s'installe en un `docker compose up` — services `influxdb:2` (port 8086) + `grafana/grafana` (port 3000), volumes persistants, accès via votre VPN existant. Je fournirai le `docker-compose.yml` complet et provisionné à la prochaine itération (il vivra dans ce dépôt).
+- **WebODM** (photogrammétrie, laptop terrain — et dépannage sur le serveur) : nativement Docker — `git clone https://github.com/OpenDroneMap/WebODM`, puis `./webodm.sh start`.
+- **KiCad MCP** : au sous-jalon S5, même logique d'installation qu'en A.2.
+
+## A.5 — Dépannage courant
+
+- « Server disconnected » : FreeCAD/Blender doit être **ouvert** et son serveur interne **démarré** (A.2.3 / A.3.3) avant de lancer la conversation.
+- `uvx` introuvable : rouvrir le terminal après l'installation de uv (rechargement du PATH).
+- Pare-feu/antivirus Windows : autoriser les connexions locales (loopback) de Claude si une alerte apparaît.
+
+# Annexe B — Lettre type sablière (à personnaliser)
+
+Champs [entre crochets] à remplir ; envoyer d'abord aux deux exploitants locaux (§9.2), puis en version adaptée à UNICEM Nouvelle-Aquitaine. Version modifiable (.docx) fournie sur demande.
+
+> **Objet : demande de convention d'occupation temporaire — pratique sportive électrique silencieuse**
+>
+> Madame, Monsieur [Nom],
+>
+> Résident bordelais, je développe un véhicule tout-terrain **100 % électrique** de conception française (biplace, environ une tonne), destiné à une pratique sportive sur sable exclusivement en terrain privé. Je recherche un site d'évolution régulier et me permets de vous solliciter pour une **convention d'occupation temporaire** portant sur une zone hors exploitation, ou en fin d'exploitation, de votre site de [Commune].
+>
+> Ce que je vous propose : un véhicule **totalement silencieux** (aucune nuisance sonore pour le voisinage, à la différence des loisirs motorisés thermiques) ; **zéro hydrocarbure** sur votre site ; une **assurance responsabilité civile dédiée** à cette pratique (attestation fournie avant tout accès) et une décharge de responsabilité établie à votre profit ; des créneaux **exclusivement à votre convenance**, hors horaires d'exploitation, sur un périmètre balisé défini ensemble ; une **indemnité d'occupation**, et — si vous disposez d'un emplacement — la **location d'une emprise pour un conteneur de stockage** (revenu récurrent pour votre exploitation) ; enfin, à votre demande, des démonstrations lors de vos événements internes ou actions RSE.
+>
+> Un dossier complet (présentation technique, sécurité, assurance) est à votre disposition. Je serais heureux de vous présenter le projet lors d'un rendez-vous à votre convenance.
+>
+> Dans l'attente de votre retour, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+>
+> [Prénom Nom] — [téléphone] — [mail]
+
 # Journal des révisions
 
 | Version | Date | Contenu |
@@ -383,6 +447,7 @@ Le serveur Vultr existant (Séoul, usage VPN) devient le **camp de base numériq
 | v0.2.1 | 17/07/2026 | Mise en page : l'intérieur suit la couverture |
 | v0.3 | 17/07/2026 | Budget 30 k -> arbitrage A/B ; nuit ; data station ; conversion < 1 j ; trajectoires ; biomimétisme ; logistique (Pilat exclu) ; MCP |
 | v0.4 | 17/07/2026 | Budget re-cadré multi-année (~78-83 k, plafond 100 k) -> **twin EMRAX re-verrouillé**, mule mono-EMRAX, RDU Tesla rejeté ; pack P45B en tranches ; sourcing Chine analysé ; balisage lumineux « Forza » ; dock enceinte ; convertibilité 12 mois ; réponse chiffrée « FIA-ready = ~15 kg, non-pénalité nette » ; 3 ajouts finaux (pression pneus, VCU secours, commandes volant) puis **innovations et biomimétisme clos** ; liste sablières girondines réelles + méthode 3 canaux ; expéditions re-priorisées (Maroc encadré > UAE conteneur > Tunisie sous conditions) ; transport sans tracteur (stockage sur site) ; serveur Corée = camp numérique |
+| v0.5 | 17/07/2026 | Retours propriétaire : **Maghreb rejeté, full UAE en conteneur** (seul horizon extérieur) ; piste « Gobi » consignée (construire sur place, beau-oncle au centre de loisirs — étude lointaine) ; **budget re-découpé en sous-jalons S0-S9 déclenchés par l'épargne** (S0 = 3 k : permis + bancs + sablière), rythme libre ; **permis B acté comme chemin critique** puis B96 ; **Annexe A** : guide MCP pas à pas (FreeCAD, Blender, rôle de Docker) ; **Annexe B** : lettre type sablière prête à envoyer |
 
 # Références
 
@@ -391,5 +456,5 @@ Le serveur Vultr existant (Séoul, usage VPN) devient le **camp de base numériq
 - UAE admission temporaire / carnet : trade.gov (country guide UAE), dubaichambers.com, atacarnet.com
 - Ferries et logistique : corsicalinea.com, directferries.fr
 - EMRAX : emrax.com (fiches 268) ; Molicel P45B : distributeurs UE ; u-blox ZED-F9P ; WebODM
-- MCP CAO : github.com/neka-nat/freecad-mcp ; Blender MCP
+- MCP CAO : github.com/neka-nat/freecad-mcp ; github.com/ahujasid/blender-mcp ; photogrammétrie : github.com/OpenDroneMap/WebODM
 - Tous prix à re-confirmer au devis à chaque jalon.

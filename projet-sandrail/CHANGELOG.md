@@ -1,5 +1,16 @@
 # Journal des révisions
 
+## v0.5 — 17 juillet 2026
+
+Retours propriétaire (25 pages).
+
+- **Expéditions tranchées : Maghreb rejeté, full UAE en conteneur** (CPD, 6 mois, hiver) — seul horizon extérieur. Piste « Gobi » consignée : construire une unité sur place un jour (beau-oncle à la sécurité d'un centre de loisirs du désert de Gobi = terrain + autorisation ; sourcing chinois enfin optimal en achat local) — étude lointaine, non budgétée.
+- **Budget re-découpé en sous-jalons S0-S9 déclenchés par l'épargne** (fini les jalons annuels à 37 k) : S0 = ~3 k (permis + bancs + sablière), mule roulante à 39,5 k cumulés, trajectoire totale inchangée ~78-83 k.
+- **Permis B acté comme chemin critique** (3-6 mois), puis B96 ; en attendant : transporteur pro, et le pilotage sur terrain privé n'exige aucun permis.
+- **Annexe A** : guide MCP pas à pas (FreeCAD MCP, Blender MCP, configs Claude Desktop/Code, dépannage ; Docker inutile pour les MCP, réservé au serveur de Corée et WebODM).
+- **Annexe B** : lettre type sablière prête à personnaliser et envoyer.
+- Générateur : sous-sections d'annexes non numérotées, encadrés multi-paragraphes.
+
 ## v0.4 — 17 juillet 2026
 
 Budget re-cadré multi-année (~78-83 k EUR par jalons annuels, plafond 100 k).

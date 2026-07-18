@@ -38,7 +38,9 @@ SAND = colors.HexColor("#F4EDDE")
 SAND_LINE = colors.HexColor("#D8C9A8")
 GREY = colors.HexColor("#6B6B6B")
 
-UNNUMBERED_H1 = {"Mode d'emploi du document", "Journal des révisions", "Références"}
+UNNUMBERED_H1 = {"Mode d'emploi du document", "Journal des révisions", "Références",
+                 "Annexe A — Intégrer les MCP pas à pas",
+                 "Annexe B — Lettre type sablière (à personnaliser)"}
 
 PAGE_W, PAGE_H = A4
 MARG_L = MARG_R = 18 * mm
@@ -175,8 +177,10 @@ def build_table(rows, s):
     return t
 
 
-def build_callout(text, s):
-    p = Paragraph(inline(text), s["Callout"])
+def build_callout(paras, s):
+    # un seul encadré, paragraphes séparés par une ligne vide
+    markup = "<br/><br/>".join(inline(p) for p in paras)
+    p = Paragraph(markup, s["Callout"])
     t = Table([[p]], colWidths=[FRAME_W - 4])
     t.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), SAND),
                            ("LINEBEFORE", (0, 0), (0, -1), 2.2, COPPER),
@@ -192,6 +196,7 @@ def parse_story(lines, s):
     story = []
     n_h1 = 0
     n_h2 = 0
+    h1_numbered = False
     i = 0
     first_h1 = True
     while i < len(lines):
@@ -204,10 +209,13 @@ def parse_story(lines, s):
             story.append(Paragraph(inline(strip[4:]), s["H3"]))
             i += 1
         elif strip.startswith("## "):
-            n_h2 += 1
             txt = strip[3:]
-            num = "%d.%d" % (n_h1, n_h2) if n_h1 else ""
-            label = ('<font color="#B4682F">%s</font>&nbsp;&nbsp;%s' % (num, inline(txt))) if num else inline(txt)
+            if h1_numbered:
+                n_h2 += 1
+                num = "%d.%d" % (n_h1, n_h2)
+                label = '<font color="#B4682F">%s</font>&nbsp;&nbsp;%s' % (num, inline(txt))
+            else:
+                label = inline(txt)
             story.append(Paragraph(label, s["H2"]))
             i += 1
         elif strip.startswith("# "):
@@ -217,10 +225,12 @@ def parse_story(lines, s):
             first_h1 = False
             if txt in UNNUMBERED_H1:
                 num, toc = None, txt
+                h1_numbered = False
             else:
                 n_h1 += 1
                 n_h2 = 0
                 num, toc = n_h1, "%d  %s" % (n_h1, txt)
+                h1_numbered = True
             story.append(SectionBanner(num, txt, toc))
             story.append(Spacer(1, 7 * mm))
             i += 1
@@ -233,12 +243,18 @@ def parse_story(lines, s):
                 i += 1
             if rows:
                 story.append(build_table(rows, s))
-        elif strip.startswith("> "):
-            buf = []
-            while i < len(lines) and lines[i].strip().startswith("> "):
-                buf.append(lines[i].strip()[2:])
+        elif strip.startswith(">"):
+            buf = [[]]
+            while i < len(lines) and lines[i].strip().startswith(">"):
+                t = lines[i].strip()
+                if t == ">":
+                    buf.append([])
+                else:
+                    buf[-1].append(t[2:] if t.startswith("> ") else t[1:].lstrip())
                 i += 1
-            story.append(build_callout(" ".join(buf), s))
+            paras = [" ".join(b) for b in buf if b]
+            if paras:
+                story.append(build_callout(paras, s))
         elif strip == "---":
             story.append(HRFlowable(width="100%", thickness=0.6, color=SAND_LINE,
                                     spaceBefore=6, spaceAfter=6))
