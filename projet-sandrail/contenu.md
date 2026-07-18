@@ -1,9 +1,9 @@
 ---
 titre: ORGANIC EXO
 sous-titre: Sandrail électrique biplace haute performance
-version: v0.5
+version: v0.6
 date: 17 juillet 2026
-statut: UAE seul horizon extérieur - sous-jalons à rythme libre - guides MCP en annexes
+statut: Pré-S0 - stratégie entièrement verrouillée, le projet démarre à l'inscription au permis B
 ---
 
 # Mode d'emploi du document
@@ -43,19 +43,25 @@ Chaque élément de décision porte un marqueur d'état :
 | Compétition | Hors championnat ; convertible **< 12 mois** vers un engagement sérieux ; conversion jour J < 1 journée | [VERROUILLÉ] |
 | Innovations | **Liste close** (§4.4) : rien n'entre sans gain mesurable (vitesse, autonomie, sécurité) | [VERROUILLÉ] |
 | Lieu de développement | Sablière privée Gironde + **stockage sur site** (pas de véhicule tracteur : §9.4) | [EN ÉTUDE - contacts §9.2] |
-| Expéditions | **UAE uniquement** (conteneur, CPD, hiver) ; Maghreb rejeté ; piste « Gobi » = construction locale, étude lointaine (§9.3) | [VERROUILLÉ] |
+| Expéditions | **UAE** (conteneur mer, CPD) [VERROUILLÉ] ; **Arabie Saoudite** : réserve légale sérieuse — l'ATA saoudien exclut l'équipement sportif (§9.3) ; Maghreb rejeté ; piste « Gobi » lointaine ; sinon **local Bordeaux** | [EN ÉTUDE - KSA] |
+| Performances visées | 0-100 : ~4-6 s selon sable (3,5 s théorique) ; Vmax ~175 km/h (démult.) ; 2,8 kg/ch (§2.4) | [EN ÉTUDE - à valider mule] |
+| Coûts récurrents | ~2,4-4,1 k EUR/an (200-340 EUR/mois) + ~25-30 EUR/session (§10.2) | [EN ÉTUDE - devis] |
 | Permis | **B d'abord** (délai critique, à lancer maintenant) puis B96 (7 h) — sous-jalon S0 (§9.4) | [VERROUILLÉ] |
 | Infrastructure numérique | Serveur Vultr (Corée) = camp de base télémétrie/meshes/CI (§11.4) | [VERROUILLÉ] |
 
 ## Décisions actées cette itération (retours propriétaire)
 
-1. **Expéditions tranchées** : non à la Chine (import véhicule) et **non au Maghreb** (Maroc, Tunisie et assimilés) — **full UAE en conteneur**, « le plus élégant et le moins risqué » (§9.3). L'idée du propriétaire pour la Chine est retournée dans le bon sens : ne pas amener le buggy, mais **en construire un sur place** un jour — la piste « Gobi » (beau-oncle à la sécurité d'un centre de loisirs du désert) est consignée comme étude lointaine.
-2. **Sous-jalons ralentis** : 37 k sur un an était trop gros — le budget passe en **sous-jalons S0-S9 déclenchés par l'épargne**, sans calendrier imposé (§10). Chaque sous-jalon est utile seul et n'engage pas le suivant.
-3. **Permis** : le propriétaire n'a pas encore le permis B — parcours acté : **B immédiatement** (délai critique du projet), puis B96 (§9.4).
-4. **Sablière** : démarche confirmée — la **lettre type est prête en Annexe B**, envoi sur feu vert après personnalisation.
-5. **MCP** : guide d'intégration pas à pas demandé et livré en **Annexe A** (FreeCAD MCP, Blender MCP ; note Docker — utile pour le serveur de Corée et WebODM, pas nécessaire pour les MCP eux-mêmes).
+1. **Sous-jalons S0-S9 validés** tels quels.
+2. **Arabie Saoudite ajoutée à l'étude** aux côtés de l'UAE (« sous réserve de check légal ») — check fait : **réserve sérieuse**, l'ATA saoudien exclut l'équipement sportif (§9.3) ; l'UAE reste la voie propre, le local bordelais reste la base.
+3. **Fret aérien étudié et chiffré** (§9.3) : ~12-20 k EUR l'aller-retour contre 2-3 k en conteneur mer — réservé à un impératif de calendrier, la mer reste la règle.
+4. **Permis B : pas lancé ce mois-ci** — acté sans pression : **l'inscription au permis sera l'acte de naissance officiel du projet** (ouverture de S0 ce jour-là). D'ici là, le projet reste en phase numérique gratuite (P0).
+5. **Coûts de possession chiffrés** (demande) : ~200-340 EUR/mois de coûts fixes, ~25-30 EUR la session — §10.2.
+6. **Performances théoriques publiées** (demande) : fiche complète au §2.4 — 0-100 en ~4-6 s dans le sable, ~175 km/h de Vmax de démultiplication, 2,8 kg/ch.
+7. **Lettre sablière** : jugée « splendide », conservée en attente — elle ne sera pas envoyée de sitôt, aucun envoi sans feu vert explicite.
+8. **Session déploiement** : préoccupation « chronophage » traitée au §9.6 — cible 20-25 min de l'arrivée au roulage, grâce au conteneur sur site et à la parallélisation du scan.
+9. **MCP : feu vert propriétaire** — tout l'étage stratégique étant verrouillé, l'Annexe A peut être déroulée sur l'ordinateur ; les sessions CAO en direct suivront.
 
-Acquis v0.4 maintenus sans changement : twin EMRAX (mule mono-EMRAX), pack P45B en tranches, balisage nuit, dock enceinte, convertibilité 12 mois, innovations et biomimétisme clos, réponse « FIA-ready = ~15 kg, non-pénalité nette » (§6.6).
+Acquis maintenus : twin EMRAX (mule mono), pack P45B en tranches, balisage nuit, dock enceinte, convertibilité 12 mois, innovations/biomimétisme clos, « FIA-ready = ~15 kg, non-pénalité nette » (§6.6), Maghreb rejeté, piste Gobi lointaine.
 
 # Synthèse de l'architecture (acquis des itérations 1-2)
 
@@ -70,6 +76,28 @@ Cas dimensionnant : réception à plat après 2 m — v = (2gh)^{1/2} ~ 6,3 m/s,
 ## Thermique (45 °C, poussière fine)
 
 **~12 kW continus.** Boucle A traction (65 °C max) : 0,30-0,35 m² de radiateur, ventilateurs haute pression sur le pont AR. Boucle B batterie (25-40 °C) : **chiller 4 kW obligatoire**, plaques froides, delta cellule < 4 K, **pré-refroidissement à 22-25 °C** (~20 min de marge à fond). Durcissement : ailettes 8-10 FPI + pré-grilles, prises hautes, IP67/IP69K, moteurs fermés, sabots UHMW.
+
+## Performances théoriques : la fiche [nouveau - à valider sur mule]
+
+Demande propriétaire. Calculs au premier ordre pour la configuration finale (twin EMRAX, 300 kW bridés VCU, GVW 1 150 kg, paddles 33", réduction 4:1) — le sable réel tranchera, mais la physique donne déjà l'ordre de grandeur :
+
+| Grandeur | Valeur | Comment |
+| Puissance / masse | **300 kW (408 ch) pour 1 150 kg = 2,8 kg/ch** | Le ratio d'une Porsche 911 GT3... dans le sable |
+| Couple à la roue | ~4 000 Nm (2 × 500 Nm × 4:1) soit ~9 500 N de poussée | Disponible dès 0 tr/min — c'est ça, le « rugissement » électrique |
+| 0-100 km/h — sable meuble | **~5,5-6 s** | Limité par la motricité (~0,5 g moyen, TC au travail) |
+| 0-100 km/h — sable porteur/tassé | **~4 s** | ~0,7 g — le TC en profite immédiatement |
+| 0-100 km/h — adhérence idéale | ~3,5 s | Limite couple (0,84 g) moins résistances : le plafond physique |
+| 50-100 km/h (relance de crête) | **~2 s** | Là où l'électrique écrase tout : pas de rétrogradage, le couple est déjà là |
+| Vmax (démultiplication) | **~175 km/h** (4 500 tr/min moteur) | Atteignable sur sable porteur (~120 kW de résistances à cette vitesse) |
+| Vmax pratique dunes | ~120-140 km/h | En dunes, la limite est le relief et le pilote, jamais la machine |
+| Pente franchissable | > 30° sans élan | Le couple à vitesse nulle gravit ce que la motricité autorise |
+| Saut dimensionné | 2 m à plat, 8 g d'absorption | §2.1 — c'est le châssis qui le garantit |
+| Autonomie attaque pure | ~75-100 km (~45-70 min) | 45 kWh à 0,45-0,6 kWh/km |
+| Autonomie mixte dunes | ~130-180 km (2-3 h) | Cruising + attaques, régén active |
+| Mule (mono-EMRAX, 15,5 kWh) | 0-100 ~6-7 s ; ~25-35 km d'attaque | Limitée par le couple (0,42 g) : parfaite pour apprendre proprement |
+| Niveau sonore | ~0 | Le vent, les paddles, la musique si envie — et c'est tout |
+
+Lecture honnête : dans le sable meuble, twin et mule accélèrent presque pareil (la motricité sature) — le twin se paie sur sable porteur, en vectorisation, en relances et en réserve thermique. Ces chiffres sont théoriques : la mule instrumentée (télémétrie n°2 + RTK n°8) les transformera en chiffres mesurés, et c'est exactement son travail.
 
 # Design lock : le langage « Organic Exo »
 
@@ -310,6 +338,10 @@ Décision propriétaire : **non à la Chine (import) et non au Maghreb** (Maroc,
 - **UAE — la destination extérieure unique [VERROUILLÉ]** : conteneur 20' Bordeaux -> Jebel Ali (~2-3 k EUR AR), **admission temporaire officielle 6 mois** (carnet CPD/ATA, procédure écrite, zéro arbitraire), hiver 20-28 °C idéal pour le chiller, zones désert libres (Liwa, Sweihan), la plus grande communauté sandrail du monde, pas de permis requis en zone désert. « Le plus élégant et le moins risqué » — exactement. Programmé au sous-jalon S9 (§10), véhicule mûr.
 - **La piste « Gobi » [EN ÉTUDE - horizon lointain]** : l'inversion du propriétaire est la bonne — ne pas amener le buggy en Chine, **en construire un sur place**. Atouts réels : le beau-oncle dirige la sécurité d'un centre de loisirs du désert de Gobi (terrain privé + autorité locale = l'équivalent chinois de notre sablière, avec l'autorisation au bon niveau), la famille sur place, et le sourcing chinois devient optimal puisqu'il n'y a plus d'export — moteur chinois enfin pertinent (achat local), cellules CATL/EVE locales, soudure locale. Lucidité : c'est un **second projet à part entière** (plans adaptés à l'offre locale, soudeur qualifié à trouver sur place, règles du centre à cadrer), pas une copie triviale. Il ne s'étudiera sérieusement qu'une fois le véhicule français mûr — et ce référentiel (plans, firmware, leçons de sablière) en sera le point de départ tout trouvé. Rien n'est budgété à ce stade.
 
+**Arabie Saoudite — le check légal demandé [EN ÉTUDE - réserve sérieuse].** Le décor est magnifique (Rub al-Khali, dunes de Thumamah) et le pays s'ouvre vite, mais le droit actuel coince pour nous : l'Arabie Saoudite n'a rejoint le système ATA qu'en juin 2024, et son adhésion **exclut explicitement l'équipement sportif** du périmètre du carnet (expositions, échantillons commerciaux et matériel professionnel seulement ; séjour max 6 mois, pré-approbation ZATCA obligatoire, pénalités de retard). Un buggy de sport non immatriculé n'a donc pas de voie d'admission temporaire propre aujourd'hui, contrairement à l'UAE. Voies restantes : un événement organisé dont l'organisateur importe le parc (modèle Dakar), ou une évolution du texte saoudien — les deux se surveillent, rien ne se force. **Verdict : UAE d'abord ; la KSA reste au radar, pas au calendrier.**
+
+**Fret aérien — le chiffrage demandé [étudié, non retenu en règle générale].** Un véhicule électrique voyage en avion cargo sous régime marchandises dangereuses (véhicule mû par batterie lithium : batterie à ~30 % de charge, dossier DGR, transitaire agréé). Le prix se calcule au **poids volumétrique** : ~3,7 × 2,0 × 1,8 m -> ~13,3 m³ soit ~2 200 kg taxables ; au tarif général + surcharges DGR et handling, comptez **~6-10 k EUR l'aller, 12-20 k EUR l'aller-retour** (à confirmer au devis transitaire), pour 3-5 jours de transit. Le conteneur maritime fait le même trajet pour **2-3 k EUR AR** en ~35-40 jours. **Verdict : la mer est la règle ; l'avion est une carte à jouer uniquement pour un impératif de calendrier** (événement à date fixe décidé tard) — et il se réserve des mois à l'avance pour du DGR, ce qui annule souvent son avantage de vitesse.
+
 ## Transport sans véhicule tracteur [nouveau - remplace le plan remorque]
 
 Pas de PTAC disponible -> on inverse le problème : **le véhicule ne rentre pas à Bordeaux, il vit sur son terrain.**
@@ -330,9 +362,23 @@ L'idée du propriétaire est excellente et techniquement mûre — et elle boucl
 - Budget : ~1 800 EUR (piquets) + ~600 EUR (spots) + ~200 EUR (contrôle) — jalon 2. Pose/dépose : ~45 min à deux pour 2 km de parcours, les positions RTK étant pré-calculées.
 - Bonus sablière : un parcours balisé au cordeau, silencieux et spectaculaire de nuit, est aussi le meilleur argument de démonstration auprès de l'exploitant et des assureurs — c'est tout sauf du hors-piste sauvage.
 
-# Budget : sous-jalons à rythme libre
+## Temps de déploiement d'une session [nouveau - réponse à « chronophage »]
 
-Retour propriétaire : 37 k en un an, c'est trop gros aujourd'hui — on ralentit. Le principe change : **plus de jalons annuels — des sous-jalons déclenchés quand l'épargne y est.** Chacun est utile seul, se stocke sans se dégrader, et n'engage pas le suivant. L'ordre est technique (on ne soude pas après avoir posé la batterie) ; le rythme est le vôtre.
+Préoccupation légitime du propriétaire : un loisir qui demande une demi-journée de mise en œuvre meurt en six mois. Principe directeur : **la voiture est toujours prête parce qu'elle ne quitte jamais son terrain** — le conteneur sur site élimine 80 % du chronophage (zéro remorquage, zéro chargement). Le reste est parallélisé ou optionnel :
+
+| Type de session | De l'arrivée au roulage | Contenu |
+| **« Ride »** (terrain connu, mesh existant) | **~20-25 min** | Ouvrir le conteneur, pré-vol 10 min (pressions par le compresseur embarqué, contrôle visuel, check HVIL), casque, roule |
+| « Nouveau secteur » | 20-25 min quand même | Le vol drone (15 min) et le calcul WebODM (30-45 min) tournent **pendant qu'on roule sur l'ancien secteur** — le nouveau mesh est prêt à la pause |
+| « Nocturne balisée » | + ~45 min de pose à deux | Positions des piquets pré-calculées (RTK) ; réservée aux soirées dédiées — la session nocturne simple (phares + pacenotes) ne demande rien |
+| Rangement | ~15 min | Brancher la charge, purge des pré-filtres, upload des logs automatique (4G -> serveur de Corée) |
+
+Deux optimisations qui changent tout : **le pré-refroidissement à distance** (le conteneur est alimenté — la veille au soir, un ordre 4G lance le chiller : on arrive pack à 23 °C, prêt pour l'attaque) et **la bibliothèque de meshes** (un secteur déjà scanné se re-scanne seulement si le vent a bougé les dunes — en sablière, quasiment jamais). La mise en œuvre chronophage est un problème de dunes sauvages en expédition ; en sablière, ce loisir se pratique comme on va au tennis : on arrive, on joue.
+
+# Budget : sous-jalons et coûts de possession
+
+## Sous-jalons d'investissement [VERROUILLÉ - ordre validé]
+
+Principe : **des sous-jalons déclenchés quand l'épargne y est**, pas de calendrier imposé. Chacun est utile seul, se stocke sans se dégrader, et n'engage pas le suivant. L'ordre est technique (on ne soude pas après avoir posé la batterie) ; le rythme est le vôtre. **S0 s'ouvre le jour de l'inscription au permis B — l'acte de naissance officiel du projet.**
 
 | Sous-jalon | Contenu | Coût | Cumul |
 | **S0 — Fondations** | Permis B (~1,5 k) + B96 (~250) ; bancs trio n° 2/4/8 (~1,2 k) ; CAO/FEA (moi, gratuit) ; démarches sablière (Annexe B) | ~3 k | 3 k |
@@ -346,7 +392,30 @@ Retour propriétaire : 37 k en un an, c'est trop gros aujourd'hui — on ralenti
 | S8 — Sens | Interface C/D + data station ; balisage nuit ; enceinte ; drone ; gestion de pression | ~5 k | 64,5 k |
 | S9 — Horizon | Conteneur + saison UAE ; titane torché + nœuds métal ; VCU secours ; marge | ~14-18 k | ~78-83 k |
 
-Garde-fous : prix re-confirmés au devis **à l'ouverture** de chaque sous-jalon (ce tableau pilote, il ne promet pas) ; économie sourcing Chine (-2,5 à -4 k, §7.4) et recettes éventuelles en déduction, jamais en pari ; cellules batterie toujours en dernier dans leur sous-jalon (fraîcheur). Ordre de grandeur du rythme : ~500 EUR/mois d'épargne met la mule (S5) à ~6 ans, ~1 000 EUR/mois à ~3 ans — **c'est l'épargne qui décide, pas le calendrier**. Et S0 s'ouvre à ~3 k : le projet démarre concrètement dès que le permis est lancé.
+Garde-fous : prix re-confirmés au devis **à l'ouverture** de chaque sous-jalon (ce tableau pilote, il ne promet pas) ; économie sourcing Chine (-2,5 à -4 k, §7.4) et recettes éventuelles en déduction, jamais en pari ; cellules batterie toujours en dernier dans leur sous-jalon (fraîcheur). Ordre de grandeur du rythme : ~500 EUR/mois d'épargne met la mule (S5) à ~6 ans, ~1 000 EUR/mois à ~3 ans — **c'est l'épargne qui décide, pas le calendrier**.
+
+## Coûts de possession et d'opération [nouveau - demande propriétaire]
+
+Ce que coûte le loisir une fois le véhicule construit — trois horloges : l'année, le mois, la session.
+
+| Poste récurrent (annuel) | Estimation |
+| Assurance RC pratique terrain/circuit | 300-600 EUR |
+| Convention sablière (indemnité d'occupation) | 500-1 500 EUR |
+| Emplacement conteneur (0 si acquis en S1 et inclus à la convention) | 0-1 200 EUR |
+| Entretien bypass (huiles, joints, 1 fois/an) | ~300 EUR |
+| Consommables châssis (roulements, rotules, visserie, graisse) | 300-600 EUR |
+| Paddles + skis (usure lissée sur 2-3 saisons) | ~250 EUR |
+| Contrôles sécurité (extincteur, harnais à péremption lissée) | ~100 EUR |
+| SIM data 4G (télémétrie + ordres à distance) | ~120 EUR |
+| Provision vieillissement batterie (~4 %/an de la valeur pack — provision, pas facture) | ~400 EUR |
+| **Total fixe** | **~2 300-4 100 EUR/an, soit ~190-340 EUR/mois** |
+
+| Coût par session | Estimation |
+| Électricité (plein 45 kWh, tarif site) | ~12-15 EUR |
+| Usure marginale (freins, consommables au prorata) | ~10-15 EUR |
+| **Total session** | **~25-30 EUR** (mule : ~10 EUR) |
+
+Lecture : c'est le coût d'un green fee de golf pour une session d'attaque dans le sable — l'électrique écrase le thermique à l'usage (un SSV essence brûle 40-60 EUR de SP98 par session avant tout entretien moteur). Les gros coûts ponctuels restent les sorties du cocon : location transport (~150-300 EUR/sortie hors site) et la saison UAE (S9, ~5-8 k). Le serveur de Corée est déjà payé, la recharge sablière est dans la convention, les logiciels du projet sont open source : **le monstre est cher à naître, économe à vivre.**
 
 # Feuille de route, décisions, outillage
 
@@ -359,13 +428,13 @@ Garde-fous : prix re-confirmés au devis **à l'ouverture** de chaque sous-jalon
 | P3 — S6 à S8 | 2e moteur (twin), pack complet, interface C/D, balisage nuit, drone | Le monstre complet |
 | P4 — S9 | Saison UAE en conteneur ; titane + nœuds métal ; VCU secours | Programme complet |
 
-## Décisions attendues [A DÉCIDER]
+## Décisions attendues et suivis [A DÉCIDER]
 
-1. **Ordre des sous-jalons S0-S9 validé tel quel ?** (le découpage est technique, mais l'ordre S2/S3 peut s'inverser si une opportunité d'occasion se présente sur les bypass ou le moteur).
-2. **Permis B : inscription lancée ce mois-ci ?** C'est le chemin critique — tout le reste peut attendre, pas ça.
-3. **Lettre sablière (Annexe B)** : relire, personnaliser les champs [entre crochets], me dire « envoie » — je préparerai alors la liste de diffusion finale (2 locaux + UNICEM).
-4. **MCP** : dérouler l'Annexe A (FreeCAD puis Blender) et me dire quand c'est en place — la CAO de la cage basculera alors en modélisation pilotée en direct.
-5. **Prochaine itération technique** : modèle dynamique 2-DOF + CAO paramétrique de la cage — valider ou réorienter.
+1. **Permis B** : aucune pression de calendrier — me signaler l'inscription quand elle a lieu : c'est elle qui ouvre S0 et démarre officiellement le projet.
+2. **Poste de travail** : dérouler `outils/setup_organic_exo.ps1` (§A.5) puis l'Annexe A (MCP FreeCAD/Blender) — me dire quand c'est en place pour basculer la CAO en modélisation pilotée en direct.
+3. **Lettre sablière (Annexe B)** : conservée en attente, aucun envoi sans « envoie » explicite.
+4. **Prochaine itération technique** : modèle dynamique 2-DOF + CAO paramétrique de la cage — valider ou réorienter.
+5. **KSA** : veille passive (le texte ATA saoudien évoluera peut-être) — rien à décider aujourd'hui.
 
 ## Outillage MCP recommandé
 
@@ -415,7 +484,15 @@ Le serveur Vultr existant (Séoul, usage VPN) devient le **camp de base numériq
 - **WebODM** (photogrammétrie, laptop terrain — et dépannage sur le serveur) : nativement Docker — `git clone https://github.com/OpenDroneMap/WebODM`, puis `./webodm.sh start`.
 - **KiCad MCP** : au sous-jalon S5, même logique d'installation qu'en A.2.
 
-## A.5 — Dépannage courant
+## A.5 — Script de préparation du poste (Windows) [nouveau]
+
+A la demande du propriétaire, le dépôt contient **`outils/setup_organic_exo.ps1`** : il crée `Téléchargements\Setup_ORGANIC_EXO` et y télécharge les installeurs officiels x64 — **KiCad 10.0.4** (miroir GitHub officiel), **FreeCAD** (dernier stable via l'API GitHub), **Blender** (dernier stable .msi via download.blender.org), **Foxglove** (avec repli winget) — puis installe **PlatformIO Core** globalement via `uv tool install platformio`, et affiche un compte-rendu (fichiers, tailles). Il ne lance aucun installeur : vous gardez la main. Usage : `powershell -ExecutionPolicy Bypass -File .\setup_organic_exo.ps1`.
+
+Pourquoi ces deux derniers outils sont d'excellents choix : **Foxglove** est le visualiseur de référence des données robotiques — c'est lui qui rejouera nos blackbox (innovation n°3) et affichera télémétrie + mesh 3D synchronisés ; **PlatformIO** est la chaîne de compilation des ESP32/Teensy — les bancs S0 et la VCU se développeront avec. Le poste ainsi préparé couvre : CAO (FreeCAD), design (Blender), électronique (KiCad), firmware (PlatformIO), données (Foxglove).
+
+**Note sécurité (SimScale et autres clés API)** : ne collez **jamais** une clé API dans une conversation — une clé se stocke dans un fichier local (`.env`, non versionné) ou dans la configuration MCP de votre machine. Le jour où l'on branche SimScale (FEA/CFD cloud — pertinent pour la quille au sous-jalon S1), je vous indiquerai exactement où la mettre, et elle ne transitera pas par le chat.
+
+## A.6 — Dépannage courant
 
 - « Server disconnected » : FreeCAD/Blender doit être **ouvert** et son serveur interne **démarré** (A.2.3 / A.3.3) avant de lancer la conversation.
 - `uvx` introuvable : rouvrir le terminal après l'installation de uv (rechargement du PATH).
@@ -448,12 +525,15 @@ Champs [entre crochets] à remplir ; envoyer d'abord aux deux exploitants locaux
 | v0.3 | 17/07/2026 | Budget 30 k -> arbitrage A/B ; nuit ; data station ; conversion < 1 j ; trajectoires ; biomimétisme ; logistique (Pilat exclu) ; MCP |
 | v0.4 | 17/07/2026 | Budget re-cadré multi-année (~78-83 k, plafond 100 k) -> **twin EMRAX re-verrouillé**, mule mono-EMRAX, RDU Tesla rejeté ; pack P45B en tranches ; sourcing Chine analysé ; balisage lumineux « Forza » ; dock enceinte ; convertibilité 12 mois ; réponse chiffrée « FIA-ready = ~15 kg, non-pénalité nette » ; 3 ajouts finaux (pression pneus, VCU secours, commandes volant) puis **innovations et biomimétisme clos** ; liste sablières girondines réelles + méthode 3 canaux ; expéditions re-priorisées (Maroc encadré > UAE conteneur > Tunisie sous conditions) ; transport sans tracteur (stockage sur site) ; serveur Corée = camp numérique |
 | v0.5 | 17/07/2026 | Retours propriétaire : **Maghreb rejeté, full UAE en conteneur** (seul horizon extérieur) ; piste « Gobi » consignée (construire sur place, beau-oncle au centre de loisirs — étude lointaine) ; **budget re-découpé en sous-jalons S0-S9 déclenchés par l'épargne** (S0 = 3 k : permis + bancs + sablière), rythme libre ; **permis B acté comme chemin critique** puis B96 ; **Annexe A** : guide MCP pas à pas (FreeCAD, Blender, rôle de Docker) ; **Annexe B** : lettre type sablière prête à envoyer |
+| v0.6 | 17/07/2026 | **Fiche performances théoriques** (§2.4 : 0-100 ~4-6 s sable, ~3,5 s théorique, Vmax ~175, 2,8 kg/ch, autonomies) ; **coûts de possession** (§10.2 : ~190-340 EUR/mois fixes, ~25-30 EUR/session) ; **check légal KSA** : ATA saoudien exclut l'équipement sportif -> réserve sérieuse, UAE confirmé n°1 ; **fret aérien chiffré** (12-20 k AR en DGR vs 2-3 k mer -> la mer reste la règle) ; **déploiement de session** (§9.6 : cible 20-25 min, conteneur + parallélisation) ; permis B « acte de naissance du projet », sans pression de calendrier ; script `setup_organic_exo.ps1` (poste Windows : KiCad 10.0.4, FreeCAD, Blender, Foxglove, PlatformIO via uv) + note d'hygiène des clés API (§A.5) ; feu vert MCP acté |
 
 # Références
 
 - FIA — Annexe J : www.fia.com/regulation/category/100 ; code env. L.362-1 : legifrance.gouv.fr
 - Sablières Gironde (annuaires publics) : kompass.com, pagesjaunes.fr ; fédération : UNICEM Nouvelle-Aquitaine ; registre carrières : DREAL NA
 - UAE admission temporaire / carnet : trade.gov (country guide UAE), dubaichambers.com, atacarnet.com
+- Arabie Saoudite : zatca.gov.sa (guideline ATA Carnet — exclusion équipement sportif), atacarnet.com (adhésion KSA juin 2024)
+- KiCad 10.0.4 : kicad.org/download ; FreeCAD : github.com/FreeCAD ; Blender : download.blender.org ; Foxglove : foxglove.dev ; PlatformIO : platformio.org
 - Ferries et logistique : corsicalinea.com, directferries.fr
 - EMRAX : emrax.com (fiches 268) ; Molicel P45B : distributeurs UE ; u-blox ZED-F9P ; WebODM
 - MCP CAO : github.com/neka-nat/freecad-mcp ; github.com/ahujasid/blender-mcp ; photogrammétrie : github.com/OpenDroneMap/WebODM

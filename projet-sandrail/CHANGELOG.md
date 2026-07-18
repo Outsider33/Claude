@@ -1,5 +1,17 @@
 # Journal des révisions
 
+## v0.6 — 17 juillet 2026
+
+Retours propriétaire (28 pages). Statut : pré-S0 — le projet démarre à l'inscription au permis B.
+
+- **Fiche performances théoriques** (§2.4) : 0-100 en ~5,5-6 s (sable meuble), ~4 s (porteur), ~3,5 s théorique ; 50-100 en ~2 s ; Vmax ~175 km/h (démultiplication), 120-140 réaliste ; 2,8 kg/ch (niveau 911 GT3) ; autonomies 45-70 min d'attaque / 2-3 h mixte ; mule chiffrée aussi.
+- **Coûts de possession** (§10.2) : ~2 300-4 100 €/an de fixes (190-340 €/mois), ~25-30 €/session — « cher à naître, économe à vivre ».
+- **Check légal Arabie Saoudite** : adhésion ATA (juin 2024) mais **équipement sportif exclu** du carnet → réserve sérieuse, veille passive ; UAE confirmé destination n°1.
+- **Fret aérien chiffré** : ~12-20 k€ AR en régime DGR (UN3171, poids volumétrique ~2,2 t) vs 2-3 k€ conteneur mer → la mer reste la règle.
+- **Déploiement de session** (§9.6) : cible 20-25 min arrivée→roulage (conteneur sur site, scan parallélisé, pré-refroidissement à distance, bibliothèque de meshes).
+- **Script poste de travail** `outils/setup_organic_exo.ps1` : télécharge KiCad 10.0.4, FreeCAD, Blender, Foxglove (Downloads\Setup_ORGANIC_EXO) + PlatformIO Core via uv, avec compte-rendu. Note d'hygiène des clés API (SimScale : jamais en chat).
+- Permis B « acte de naissance du projet », sans pression ; feu vert MCP acté.
+
 ## v0.5 — 17 juillet 2026
 
 Retours propriétaire (25 pages).
