@@ -1,5 +1,17 @@
 # Journal des révisions
 
+## v0.4 — 17 juillet 2026
+
+Budget re-cadré multi-année (~78-83 k EUR par jalons annuels, plafond 100 k).
+
+- **Twin EMRAX re-verrouillé** (« le meilleur moteur ») ; mule an 1 = mono-EMRAX (rien d'acheté pour être jeté) ; RDU Tesla rejeté ; pack P45B **en tranches modulaires** (15,5 → 43,5 kWh au fil des apports).
+- Sourcing Chine analysé : composants oui (−2,5 à −4 k), moteur non ; pièces de vie toujours certifiées.
+- **Balisage lumineux « Forza »** : piquets LED RGB posés par RTK sur la ligne calculée — la trajectoire devient physique la nuit ; dock enceinte avec ducking pacenotes.
+- Convertibilité FIA portée à 12 mois ; réponse chiffrée « FIA-ready = ~15 kg, +2-3 mm de CG, rigidité accrue → non-pénalité nette ».
+- 3 ajouts finaux tangibles (gestion pression pneus, VCU limp-home, commandes volant F1) puis **innovations + biomimétisme clos**.
+- Logistique sans véhicule tracteur : **stockage conteneur sur site sablière** + location/transporteur ; liste réelle d'exploitants girondins (Sibelco Mios, Sablière St-Jean-d'Illac, Fabre Cestas, CEMEX, GSM, Lafarge) + méthode UNICEM/DREAL ; expéditions re-priorisées : Maroc encadré > UAE conteneur (CPD, 6 mois) > Tunisie sous conditions strictes.
+- Serveur Vultr (Corée) adopté : télémétrie (InfluxDB/Grafana), meshes, CI firmware, backup.
+
 ## v0.3 — 17 juillet 2026
 
 Itération majeure sur retours propriétaire (21 pages).
